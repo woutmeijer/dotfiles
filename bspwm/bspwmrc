@@ -1,0 +1,39 @@
+#! /bin/sh
+
+feh --bg-scale $HOME/Pictures/wallpaper.png
+$HOME/.screenlayout/display.sh
+$HOME/setRefreshRate.sh
+$HOME/.config/polybar/launch.sh
+
+xsetroot -cursor_name left_ptr
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+picom &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+./.config/polybar/launch.sh &
+hsetroot -solid '#151515'
+
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor HDMI-0 -d 6 7 8 9 0
+
+bspc config border_width         2
+bspc config window_gap           8
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+bspc config foxus_folows_pinter  true
+
+bspc config normal_border_color '#2e313d'
+bspc config focused_border_color '#5b5f71'
+
+bspc config focus_follows_pointer true
+
+wmname LG3D
+
+bspc rule -a "" fullscreen=on
+bspc rule -a KeePassXC state=floating
+bspc rule -a nautilus state=floating
+bspc rule -a Lxappearance state=floating
+

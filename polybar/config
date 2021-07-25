@@ -1,0 +1,97 @@
+[bar/screen1]
+monitor=HDMI-0
+bottom=false
+fixed-center=true
+height=18
+width=100%
+padding=1
+
+border-size=1
+border-color = #1c1c1c
+
+background = #1c1c1c
+foreground = #b5b4c9
+
+font-0="Fira code medium:pixelsize=10;2"
+font-1="Siji:size=10;2"
+
+modules-right=memory cpu temperature pulseaudio date
+modules-center=bspwm
+module-margin=2
+
+[bar/screen2]
+monitor=DP-2
+bottom=false
+fixed-center=true
+height=18
+width=100%
+padding=1
+
+border-size=1
+border-color = #1c1c1c
+
+background = #1c1c1c
+foreground = #b5b4c9
+
+font-0="Fira code medium:pixelsize=10;2"
+font-1="Siji:size=10;2"
+
+modules-right=date
+modules-center=bspwm
+module-margin=2
+
+[module/date]
+type=internal/date
+interval=1.0
+date=%d-%m-%Y%
+time=%I:%M
+date-alt=%A, %d %B %Y
+time-alt=%I:%M:%S %A, %d %B %Y
+
+format= <label>
+label=%time%
+
+[module/temperature]
+type=internal/temperature
+interval=0.5
+thermal-zone=0
+base-temperature=38
+warn-temperature=70
+format=<label>
+format-warn=<label-warn>
+label= %temperature-c%
+label-warn= %temperature-c%
+
+[module/cpu]
+type=internal/cpu
+interval=0.5
+format=<label>
+label= %percentage%%
+
+[module/memory]
+type=internal/memory
+interval=3
+format=<label>
+label= %gb_used%
+
+[module/pulseaudio]
+type=internal/pulseaudio
+sink=alsa_output.pci-0000_00_1b.0.analog-stereo
+format=<label-volume>
+label-volume= %percentage%%
+label-muted=
+click-right=pavucontrol
+
+[module/bspwm]
+type=internal/bspwm
+format=<label-state> <label-mode>
+label-focused=
+label-focused-padding=1
+label-occupied=
+label-occupied-padding=1
+label-occupied-foreground=#5e5c80
+label-empty=
+label-empty-padding=1
+
+; vim: set ft=dosini nomodeline:
+
