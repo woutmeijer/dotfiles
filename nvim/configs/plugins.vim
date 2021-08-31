@@ -28,8 +28,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['markdown', 'markdown.pandoc']}
 Plug 'lervag/vimtex', {'for': 'tex'}
 
-"Plug 'itchyny/lightline.vim'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['cpp', 'c'] }
 
